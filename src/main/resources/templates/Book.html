@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 "/>
+<title>Insert book info</title>
+</head>
+<body>
+
+
+<form method="post" action="#" th:action=@{/addbook} th:object=${kirja}>
+<h1>book info</h1>
+
+
+<label>Title:</label>
+<br>
+<input type="text" th:field=${kirja.title} name="title"/>
+</br>
+
+
+<label>Author:</label>
+<br>
+<input type="text" th:field=${kirja.author} name="author"/>
+</br>
+
+
+<label>Year:</label>
+<br>
+<input type="number" th:field=${kirja.year} name="year"/>
+</br>
+
+<label>Isbn:</label>
+<br>
+<input type="text" th:field=${kirja.isbn} name="isbn"/>
+</br>
+
+<label>Price:</label>
+<br>
+<input type="number" th:field=${kirja.price} name="price"/>
+</br>
+
+<br><input type="submit" value="Lähetä"/></br>
+
+
+ 
+</form>
+</body>
+</html>
