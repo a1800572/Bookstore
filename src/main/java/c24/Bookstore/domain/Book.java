@@ -1,23 +1,40 @@
 package c24.Bookstore.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="kirja")
 public class Book {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	
+	@Column(name="title")
 	private String title;
 	private String author;
 	private int year;
 	private String isbn;
 	private int price;
 	
-	public Book() {
+	public Book() {}
+	
+	public Book(String title, String author, int year, String isbn, int price) {
 		super();
-		this.title=null;
-		this.author=null;
-		this.year=0;
-		this.isbn=null;
-		this.price=0;
+		this.title=title;
+		this.author=author;
+		this.year=year;
+		this.isbn=isbn;
+		this.price=price;
 	}
 	
-	
+	public void setId(Long id) {
+		this.id=id;
+	}
 	
 	public void setTitle(String title) {
 		this.title=title;
@@ -37,6 +54,10 @@ public class Book {
 	
 	public void setPrice(int price) {
 		this.price=price;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 	
 	public String getTitle() {
