@@ -8,7 +8,7 @@
 <body>
 
 	<a href="/newbook">
-	<button class="btn btn-success">Lisää kirja</button>
+	<button class="btn btn-success btn-lg">Lisää kirja</button>
 	</a>
 	
 	
@@ -21,6 +21,8 @@
 		    <th>Year</th>
 		    <th>Isbn</th>
 		    <th>Price</th>
+		    <th>Category</th>
+		    
 		</tr>  
     	<tr th:each = "book : ${books}">
     		<td th:text="${book.id}"></td>
@@ -29,6 +31,7 @@
     		<td th:text="${book.year}"></td>
     		<td th:text="${book.isbn}"></td>
     		<td th:text="${book.price}"></td>
+    		<td th:text="${book.category.name}"></td>
     		
     		
     		<td><a th:href="@{/removebook/{id}(id=${book.id})}">
@@ -37,7 +40,7 @@
     		</td>
     		
     		<td><a th:href="@{/editbook/{id}(id=${book.id})}">
-    		<button>Päivitä</button>
+    		<button class="btn btn-primary">Päivitä</button>
     		</a>
     		</td>
  			    		

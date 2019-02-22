@@ -12,29 +12,35 @@
 
 <input type="hidden" th:field="*{id}"/>
 
-<label>Title:</label>
+<label>Write new title:</label>
 <br>
 <input type="text" th:field=${kirja.title} name="title" id="title"/>
 </br>
 
-<label>Author:</label>
+<label>Change name of author:</label>
 <br>
 <input type="text" th:field=${kirja.author} name="author" id="author"/>
 </br>
 
-<label>Year:</label>
+<label>Write new year:</label>
 <br>
 <input type="number" th:field=${kirja.year} name="year" id="year"/>
 </br>
 
-<label>Isbn:</label>
+<label>Write new isbn:</label>
 <br>
 <input type="text" th:field=${kirja.isbn} name="isbn" id="isbn"/>
 </br>
 
-<label>Price:</label>
+<label>Write new price:</label>
 <br>
 <input type="number" th:field=${kirja.price} name="price" id="price"/>
+</br>
+
+<label for="catlist">Choose new category:</label>
+<br>
+<select id="catlist" th:field="*{category}" class="form-control">
+<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
 </br>
 
 <br>

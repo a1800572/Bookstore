@@ -38,7 +38,16 @@
 <input type="number" th:field=${kirja.price} name="price" id="price"/>
 </br>
 
-<br><input type="submit" value="Lähetä"/></br>
+<label for="catlist">Choose category:</label>
+<br>
+<select id="catlist" th:field="*{category}" class="form-control">
+<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+</br>
+
+
+<br>
+<input type="submit" value="Lähetä"/>
+</br>
 
 
  
