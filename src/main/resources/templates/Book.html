@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8 "/>
+<link type="text/css"rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 <title>Insert book info</title>
 </head>
 <body>
@@ -13,41 +14,66 @@
 
 <label>Title:</label>
 <br>
-<input type="text" th:field=${kirja.title} name="title" id="title"/>
+<input class="col-sm-2 form-control-sm"
+ placeholder="Enter book title here"
+ type="text"
+ th:field=${kirja.title}
+ name="title"
+ id="title"/>
 </br>
 
 
 <label>Author:</label>
 <br>
-<input type="text" th:field=${kirja.author} name="author" id="author"/>
+<input class="col-sm-2 form-control-sm"
+placeholder="Enter name of the author here"
+type="text"
+th:field=${kirja.author}
+name="author"
+id="author"/>
 </br>
 
 
 <label>Year:</label>
 <br>
-<input type="number" th:field=${kirja.year} name="year" id="year"/>
+<input class="col-sm-2 form-control-sm"
+placeholder="Enter year of publication here"
+type="number"
+th:field=${kirja.year}
+name="year"
+id="year"/>
 </br>
 
 <label>Isbn:</label>
 <br>
-<input type="text" th:field=${kirja.isbn} name="isbn" id="isbn"/>
+<input class="col-sm-2 form-control-sm"
+placeholder="Enter book isbn here"
+type="text"
+th:field=${kirja.isbn}
+name="isbn"
+id="isbn"/>
 </br>
 
 <label>Price:</label>
 <br>
-<input type="number" th:field=${kirja.price} name="price" id="price"/>
+<input class="col-sm-2 form-control-sm"
+placeholder="Enter price of book here"
+type="number"
+th:field=${kirja.price}
+name="price"
+id="price"/>
 </br>
 
 <label for="catlist">Choose category:</label>
 <br>
-<select id="catlist" th:field="*{category}" class="form-control">
+<select id="catlist" th:field="*{category}" class="form-control-sm col-sm-2">
 <option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
 </br>
 
 
-<br>
-<input type="submit" value="Lähetä"/>
-</br>
+
+<input class="btn btn-success" type="submit" value="Lähetä"/>
+
 
 
  
