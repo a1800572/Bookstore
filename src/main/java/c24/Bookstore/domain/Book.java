@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="kirja")
 public class Book {
@@ -21,15 +23,18 @@ public class Book {
 	private String author;
 	private int year;
 	private String isbn;
-	private int price;
+	private double price;
+	
+	
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name="categoryid")
 	private Category category;
 	
 	public Book() {}
 	
-	public Book(String title, String author, int year, String isbn, int price, Category category) {
+	public Book(String title, String author, int year, String isbn, double price, Category category) {
 		super();
 		this.title=title;
 		this.author=author;
@@ -59,7 +64,7 @@ public class Book {
 		this.isbn=isbn;
 	}
 	
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price=price;
 	}
 	
@@ -87,7 +92,7 @@ public class Book {
 		return isbn;
 	}
 	
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	
