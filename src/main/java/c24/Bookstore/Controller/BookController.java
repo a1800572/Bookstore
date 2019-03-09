@@ -58,6 +58,11 @@ public class BookController {
 		return "redirect:booklist";
 	}
 	
+	//Operaattori lähettää indexrest sivulle
+	@RequestMapping(value="/index", method=RequestMethod.GET)
+	public String index() {
+		return "indexrest";
+	}
 	
 
 }

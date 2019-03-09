@@ -21,7 +21,6 @@ public class RestController {
 	@Autowired
 	private BookRepository repository;
 	
-	// crepositoriota ei tarvita tallähetkellä
 	
 	@Autowired
 	private CategoryRepository crepository;
@@ -55,5 +54,7 @@ public class RestController {
 		public @ResponseBody Optional <Category> findCategoryRest(@PathVariable("id") Long categoryId){
 			return crepository.findById(categoryId);
 		}
+		
+		
 
 }
