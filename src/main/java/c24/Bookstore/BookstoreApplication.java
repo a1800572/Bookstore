@@ -11,6 +11,10 @@ import c24.Bookstore.domain.Book;
 import c24.Bookstore.domain.BookRepository;
 import c24.Bookstore.domain.Category;
 import c24.Bookstore.domain.CategoryRepository;
+import c24.Bookstore.domain.User;
+import c24.Bookstore.domain.UserRepository;
+
+
 
 
 
@@ -26,7 +30,7 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner studentDemo(BookRepository brepository, CategoryRepository crepository) {
+	public CommandLineRunner studentDemo(BookRepository brepository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
 			log.info("kokeilu");
 			
@@ -68,6 +72,13 @@ public class BookstoreApplication {
 			brepository.save(new Book("The Count of Monte Cristo","Alexandre Dumas",1844, "aaa-ddf-ggg", 25, crepository.findByName("Sci-Fi & Fantasy").get(0)));
 			brepository.save(new Book("Inferno (Dante)","Dante Alighieri",1400, "df-gdff-hgj", 20, crepository.findByName("Sci-Fi & Fantasy").get(0)));
 			brepository.save(new Book("The Metamorphosis","Franz Kafka",1915, "dfff-ghjjh-kkk", 40, crepository.findByName("Business").get(0)));
+			
+			//user1 salasana on käyttäjä
+			User user1 = new User("käyttäjä", "$2a$12$KDF4TyXvkV9D/sp1K0VZY.ml/ZilUgn1DfMDR/d.iukHoi6s3JCbi", "valtteri.koivunen@hotmail.com", "USER");
+			//user2 salasana on bookstore
+			User user2 = new User("admin", "$2a$12$pL0lx/TRYFjNvX30hmJX7u7WJ3UALMWxztTpE9dylI5nuyC2L.VOi", "admin@hotmail.com", "ADMIN");
+			urepository.save(user1);
+			urepository.save(user2);
 			
 			
 			log.info("nouto");

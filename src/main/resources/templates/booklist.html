@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <title>booklist</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -7,6 +7,10 @@
 </head>
 <body>
 
+
+	<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	
+	
 	<a href="/newbook">
 	<button class="btn btn-success btn-lg">Lisää kirja</button>
 	</a>
@@ -14,6 +18,12 @@
 	<a href="/index">
 	<button class="btn btn-warning btn-lg">Näytä indexrest</button>
 	</a>
+	
+	<div class="col-md-4" style="padding:20px 0">
+	<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Kirjaudu ulos" class="btn btn-danger btn-lg"/>
+	</form>
+	</div>
 	
 	
 	<h1>Books</h1>
@@ -39,11 +49,14 @@
     		<td th:text="${book.category.name}"></td>
     		
     		
-    		<td>
+    		<td sec:authorize="hasAuthority('ADMIN')">
     		<a th:href="@{/removebook/{id}(id=${book.id})}">
     		<button class="btn btn-danger">Poista</button>
     		</a>
     		
+    		
+    		
+    		<td>
     		<a th:href="@{/editbook/{id}(id=${book.id})}">
     		<button class="btn btn-primary">Päivitä</button>
     		</a>
