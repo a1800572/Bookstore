@@ -22,6 +22,9 @@ public class User {
 	@Column(name = "email", nullable = false , unique=true)
 	private String email;
 	
+	@Column(name = "phone", nullable = false , unique=true)
+	private String phone;
+	
 	@Column(name = "role", nullable = false)
     private String role;
 	
@@ -29,11 +32,12 @@ public class User {
 		
 	}
 	
-	public User(String username, String passwordHash, String email, String role) {
+	public User(String username, String passwordHash, String email, String phone, String role) {
 	super();
 	this.username=username;
 	this.passwordHash=passwordHash;
 	this.email=email;
+	this.phone=phone;
 	this.role=role;
 	}
 	
@@ -51,6 +55,10 @@ public class User {
 	
 	public void setEmail(String email) {
 		this.email=email;
+	}
+	
+	public void setPhone(String phone) {
+		this.phone=phone;
 	}
 	
 	public void setRole(String role) {
@@ -74,6 +82,10 @@ public class User {
 	
 	public String getEmail() {
 		return email;
+	}
+	
+	public String getPhone() {
+		return phone;
 	}
 	
 	public String getRole() {

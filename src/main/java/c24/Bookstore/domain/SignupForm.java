@@ -20,9 +20,21 @@ public class SignupForm {
     @NotEmpty
     @Size(min=10, max=50)
     private String email = "";
+    
+    @NotEmpty
+    @Size(min=10, max=50)
+    private String phone = "";
 
     @NotEmpty
     private String role = "USER";
+    
+    public String getPhone() {
+		return phone;
+	}
+    
+    public void setPhone(String phone) {
+		this.phone = phone;
+	}
     
     public String getEmail() {
 		return email;

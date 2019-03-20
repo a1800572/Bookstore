@@ -28,6 +28,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	        .permitAll() 
 	        .and()
 	        
+	        //poista tämä testien jälkeen
+	        .authorizeRequests()
+	        .antMatchers("/booklist", "/newbook", "/books", "/book/{id}")
+	        .permitAll() 
+	        .and()
+	        
 	        
 	        .authorizeRequests()
 	        .antMatchers("/signup", "/saveuser")
